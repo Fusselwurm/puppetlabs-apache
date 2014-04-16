@@ -53,4 +53,10 @@ class apache::mod::ssl (
     before  => File[$::apache::mod_dir],
     notify  => Service['httpd'],
   }
+
+  file {'/var/run/apache2/ssl_mutex':
+    ensure => 'directory',
+    owner => 'www-data',
+  }
+
 }
